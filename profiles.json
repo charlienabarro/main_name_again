@@ -1,0 +1,88 @@
+[
+  {
+    "username": "JohnDoe",
+    "bio": "This is a test bio",
+    "socialMedia": {
+      "facebook": "john_doe_fb",
+      "twitter": "john_doe_tw",
+      "instagram": "john_doe_insta"
+    }
+  },
+  {
+    "username": "chanab0910",
+    "bio": "adad",
+    "socialMedia": {
+      "facebook": "wadawd",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "chanab0910",
+    "bio": "hello",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "henman0809@highgateschool.org.uk",
+    "bio": "hello",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "annabellenabarro@mac.com",
+    "bio": "mum",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "henman0809@highgateschool.org.uk",
+    "bio": "hello",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "dean nabarro",
+    "bio": "father",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "lily",
+    "bio": "person",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "",
+      "linkedin": ""
+    }
+  }
+]
