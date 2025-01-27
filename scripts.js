@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <p class="card-text">${profileData.bio}</p>
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-primary btn-sm" href="javascript:void(0);" data-username="${profileData.username}">Find ${profileData.username}'s Links</a>
+                            <a class="btn btn-primary btn-sm" href="javascript:void(0);" id="" data-username="${profileData.username}">Find ${profileData.username}'s Links</a>
                         </div>
                     </div>
                 `;
