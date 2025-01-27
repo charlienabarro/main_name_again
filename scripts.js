@@ -1,6 +1,7 @@
 document.getElementById('profile-link').addEventListener('click', function(event) {
     event.preventDefault();
     document.getElementById('profile-form').style.display = 'block'; // Show the profile form
+    document.getElementById('profile-form').scrollIntoView({ behavior: 'smooth' });
 
 });
 
@@ -24,6 +25,7 @@ document.getElementById('profile_checker').addEventListener('click', function(ev
         document.getElementById('username5').value = profileData.socialMedia.linkedin;
 
         document.getElementById('profile-form').style.display = 'block'; // Show the profile form
+         document.getElementById('profile-form').scrollIntoView({ behavior: 'smooth' });
     }
     else {
         formTitle.innerText = 'Create Your Profile';
@@ -216,6 +218,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     `;
 
+                    //add something to revert them back to original state
+
+
                     // Hide all other profiles when one is selected
                     const allProfiles = document.querySelectorAll('.col-md-4');
                     allProfiles.forEach(profile => {
@@ -229,28 +234,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Add event listener for "Back to All Profiles" button
             document.getElementById('profile-content-row').addEventListener('click', function(event) {
-                if (event.target && event.target.id === 'back-to-all-profiles') {
-                    event.preventDefault();
+            if (event.target && event.target.id === 'back-to-all-profiles') {
+                event.preventDefault();
 
-                    // Hide the individual profile view
-                    const individualProfile = document.getElementById('individual-profile');
-                    if (individualProfile) {
-                        individualProfile.style.display = 'none';  // Hide individual profile
-                    }
+                // Find the individual profile container
+                const profileCard = event.target.closest('.col-md-4');
 
-                    // Show the profile content row with all profiles again
-                    const profileContentRow = document.getElementById('profile-content-row');
-                    if (profileContentRow) {
-                        profileContentRow.style.display = 'flex';  // Use flexbox for the grid to show profiles
-                    }
+                // Reset the content of the profile to just username and bio
+                const profileData = profiles.find(p => p.username === profileCard.getAttribute('data-profile-id'));
 
-                    // Reset the visibility of all profile cards (in case any were hidden)
-                    const allProfileCards = document.querySelectorAll('.col-md-4');
-                    allProfileCards.forEach(card => {
-                        card.style.display = 'block';  // Make sure all profile cards are visible again
-                    });
-                }
-            });
+                profileCard.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">${profileData.username}</h2>
+                            <p class="card-text">${profileData.bio}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary btn-sm" href="javascript:void(0);" data-username="${profileData.username}">Find ${profileData.username}'s Links</a>
+                        </div>
+                    </div>
+                `;
+
+                // Show all profiles again by changing their display to block
+                const allProfileCards = document.querySelectorAll('.col-md-4');
+                allProfileCards.forEach(card => {
+                    card.style.display = 'block';  // Make sure all profile cards are visible again
+                });
+            }
+        });
 
         })
         .catch(error => {

@@ -9,8 +9,9 @@ const port = 3001;
 app.use(express.json());
 app.use(cors());  // Enable CORS for cross-origin requests
 
-// Endpoint to handle saving profile
-app.post('/api/save-profile', (req, res) => {
+
+// Save or update profile
+app.post('/api/save-profile', express.json(), (req, res) => {
     const profileData = req.body;  // Get the data from the request body
     console.log(profileData);  // Log data to check if it's being received correctly
 
@@ -31,24 +32,32 @@ app.post('/api/save-profile', (req, res) => {
                 return res.status(500).json({ success: false, message: 'Error reading file' });
             }
         } else {
-            let profiles = [];
-            if (data) {
-                profiles = JSON.parse(data);  // Parse existing profiles if available
+            let profiles = JSON.parse(data);  // Parse existing profiles if available
+            const existingProfileIndex = profiles.findIndex(profile => profile.username === profileData.username);
+
+            if (existingProfileIndex !== -1) {
+                // If the profile exists, update it
+                profiles[existingProfileIndex] = profileData;
+                fs.writeFile(filePath, JSON.stringify(profiles, null, 2), 'utf8', (err) => {
+                    if (err) {
+                        return res.status(500).json({ success: false, message: 'Error writing file' });
+                    }
+                    return res.json({ success: true, message: 'Profile updated successfully' });
+                });
+            } else {
+                // If no existing profile, create a new one
+                profiles.push(profileData);
+                fs.writeFile(filePath, JSON.stringify(profiles, null, 2), 'utf8', (err) => {
+                    if (err) {
+                        return res.status(500).json({ success: false, message: 'Error writing file' });
+                    }
+                    return res.json({ success: true, message: 'Profile saved successfully' });
+                });
             }
-
-            profiles.push(profileData);  // Add the new profile
-
-            // Write the updated profiles back to the file
-            fs.writeFile(filePath, JSON.stringify(profiles, null, 2), 'utf8', (err) => {
-                if (err) {
-                    return res.status(500).json({ success: false, message: 'Error writing file' });
-                }
-
-                return res.json({ success: true, message: 'Profile saved successfully' });
-            });
         }
     });
 });
+
 //get profiles form profiles.json
 app.get('/api/profiles', (req, res) => {
     fs.readFile(path.join(__dirname, 'profiles.json'), 'utf8', (err, data) => {

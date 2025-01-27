@@ -1,98 +1,57 @@
 [
   {
-    "username": "JohnDoe",
-    "bio": "This is a test bio",
+    "username": "Isaac",
+    "bio": "I dont like you",
     "socialMedia": {
-      "facebook": "john_doe_fb",
-      "twitter": "john_doe_tw",
-      "instagram": "john_doe_insta"
-    }
-  },
-  {
-    "username": "chanab0910",
-    "bio": "adad",
-    "socialMedia": {
-      "facebook": "wadawd",
+      "facebook": "",
       "twitter": "",
-      "instagram": "",
+      "instagram": "isaac_shrt",
       "snapchat": "",
       "linkedin": ""
     }
   },
   {
-    "username": "chanab0910",
-    "bio": "hello",
+    "username": "Patrick Sam",
+    "bio": "bestb of the best",
     "socialMedia": {
       "facebook": "",
       "twitter": "",
-      "instagram": "",
-      "snapchat": "",
+      "instagram": "patricksammm",
+      "snapchat": "psam381",
       "linkedin": ""
     }
   },
   {
-    "username": "henman0809@highgateschool.org.uk",
-    "bio": "hello",
+    "username": "Inga Rae Harwood Bond",
+    "bio": "Durham natural sciences",
     "socialMedia": {
       "facebook": "",
       "twitter": "",
-      "instagram": "",
-      "snapchat": "",
+      "instagram": "inga_hb",
+      "snapchat": "inga3hb",
+      "linkedin": ""
+    }
+
+  },
+  {
+    "username": "Aryan Bhujade",
+    "bio": "i fw (fuck with) ts (this shit) ",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "aryan.bhujade",
+      "snapchat": "aryan_bhujade",
       "linkedin": ""
     }
   },
   {
-    "username": "annabellenabarro@mac.com",
-    "bio": "mum",
+    "username": "Sofia Roberts",
+    "bio": "i am italian gang :)",
     "socialMedia": {
       "facebook": "",
       "twitter": "",
-      "instagram": "",
-      "snapchat": "",
-      "linkedin": ""
-    }
-  },
-  {
-    "username": "henman0809@highgateschool.org.uk",
-    "bio": "hello",
-    "socialMedia": {
-      "facebook": "",
-      "twitter": "",
-      "instagram": "",
-      "snapchat": "",
-      "linkedin": ""
-    }
-  },
-  {
-    "username": "dean nabarro",
-    "bio": "father",
-    "socialMedia": {
-      "facebook": "",
-      "twitter": "",
-      "instagram": "",
-      "snapchat": "",
-      "linkedin": ""
-    }
-  },
-  {
-    "username": "lily",
-    "bio": "person",
-    "socialMedia": {
-      "facebook": "",
-      "twitter": "",
-      "instagram": "",
-      "snapchat": "",
-      "linkedin": ""
-    }
-  },
-  {
-    "username": "jamie",
-    "bio": "man",
-    "socialMedia": {
-      "facebook": "",
-      "twitter": "",
-      "instagram": "",
-      "snapchat": "",
+      "instagram": "sofia_roberts90",
+      "snapchat": "xender90x",
       "linkedin": ""
     }
   }
