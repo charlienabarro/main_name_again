@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Loop through each profile and create a card for each
             profiles.forEach(profile => {
                 const profileCard = document.createElement('div');
-                profileCard.classList.add('col-md-4', 'mb-5');
+                profileCard.classList.add('col-md-4', 'mb-5');  // Bootstrap grid for 3 profiles per row
                 profileCard.setAttribute('data-profile-id', profile.username);  // Store the username in the card
 
                 profileCard.innerHTML = `
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Show the profile content row with all profiles again
                     const profileContentRow = document.getElementById('profile-content-row');
                     if (profileContentRow) {
-                        profileContentRow.style.display = 'block';  // Show the profile content row
+                        profileContentRow.style.display = 'flex';  // Use flexbox for the grid to show profiles
                     }
 
                     // Reset the visibility of all profile cards (in case any were hidden)
@@ -257,5 +257,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Error fetching profiles:', error);
         });
 });
+
 
 
