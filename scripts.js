@@ -7,10 +7,12 @@ document.getElementById('profile-link').addEventListener('click', function(event
 //checks to see if you have a profile
 document.getElementById('profile_checker').addEventListener('click', function(event) {
     event.preventDefault();
+    console.log('Profile button clicked');
 
     const profile = localStorage.getItem('profile')
     const formTitle = document.getElementById('profile-form-title');
     if (profile){
+        console.log('found profile')
         formTitle.innerText = 'Edit Your Profile';
         const profileData = JSON.parse(profile);
         document.getElementById('username').value = profileData.username;
@@ -22,7 +24,6 @@ document.getElementById('profile_checker').addEventListener('click', function(ev
         document.getElementById('username5').value = profileData.socialMedia.linkedin;
 
         document.getElementById('profile-form').style.display = 'block'; // Show the profile form
-        window.scrollTo(0, document.body.scrollHeight); // Scroll to the form
     }
     else {
         formTitle.innerText = 'Create Your Profile';
@@ -199,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     // Modify the profile card content to display detailed information
                     profileCard.innerHTML = `
-                        <div class="card h-100">
+                        <div class="card h-100" id="individual-profile">
                             <div class="card-body">
                                 <h2 class="card-title">${profile.username}</h2>
                                 <p class="card-text">${profile.bio}</p>
@@ -210,12 +211,12 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <p>LinkedIn: ${profile.socialMedia.linkedin}</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-secondary btn-sm" href="javascript:void(0);" id="back-to-all-profiles">Back to Profile</a>
+                                <a class="btn btn-secondary btn-sm" href="javascript:void(0);" id="back-to-all-profiles">Back to All Profiles</a>
                             </div>
                         </div>
                     `;
 
-                    // Optionally, hide all other profiles when one is selected
+                    // Hide all other profiles when one is selected
                     const allProfiles = document.querySelectorAll('.col-md-4');
                     allProfiles.forEach(profile => {
                         profile.style.display = 'none';  // Hide all profiles
@@ -225,8 +226,36 @@ document.addEventListener("DOMContentLoaded", function() {
                     profileCard.style.display = 'block';  // Show the selected profile
                 });
             });
+
+            // Add event listener for "Back to All Profiles" button
+            document.getElementById('profile-content-row').addEventListener('click', function(event) {
+                if (event.target && event.target.id === 'back-to-all-profiles') {
+                    event.preventDefault();
+
+                    // Hide the individual profile view
+                    const individualProfile = document.getElementById('individual-profile');
+                    if (individualProfile) {
+                        individualProfile.style.display = 'none';  // Hide individual profile
+                    }
+
+                    // Show the profile content row with all profiles again
+                    const profileContentRow = document.getElementById('profile-content-row');
+                    if (profileContentRow) {
+                        profileContentRow.style.display = 'block';  // Show the profile content row
+                    }
+
+                    // Reset the visibility of all profile cards (in case any were hidden)
+                    const allProfileCards = document.querySelectorAll('.col-md-4');
+                    allProfileCards.forEach(card => {
+                        card.style.display = 'block';  // Make sure all profile cards are visible again
+                    });
+                }
+            });
+
         })
         .catch(error => {
             console.error('Error fetching profiles:', error);
         });
 });
+
+
