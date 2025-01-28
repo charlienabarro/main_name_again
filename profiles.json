@@ -100,13 +100,13 @@
   },
   {
     "username": "Charlie Nabarro",
-    "bio": "Durham Computer Science\nHighgate",
+    "bio": "highgate schoool ",
     "socialMedia": {
       "facebook": "",
       "twitter": "",
       "instagram": "charlie_nabarro",
       "snapchat": "charlie_nabarro",
-      "linkedin": "charlie_nabarro"
+      "linkedin": ""
     }
   },
   {
@@ -117,6 +117,17 @@
       "twitter": "",
       "instagram": "lily.lw_",
       "snapchat": "lilylloydw",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Talia Nabarro",
+    "bio": "Music student at leeds but living in america",
+    "socialMedia": {
+      "facebook": "talianabarro",
+      "twitter": "",
+      "instagram": "talianabarro",
+      "snapchat": "talianabarro1",
       "linkedin": ""
     }
   }

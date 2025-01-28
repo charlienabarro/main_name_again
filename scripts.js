@@ -1,3 +1,4 @@
+//show the profile form
 document.getElementById('profile-link').addEventListener('click', function(event) {
     event.preventDefault();
     document.getElementById('profile-form').style.display = 'block'; // Show the profile form
@@ -32,8 +33,6 @@ document.getElementById('profile_checker').addEventListener('click', function(ev
         alert("You have not created a profile yet. Please press on the 'create your profile' button")
     }
 
-
-
 });
 
 
@@ -56,7 +55,7 @@ document.getElementById('hide-profile').addEventListener('click', function(event
 
 
 
-
+//toggles the inputs for the accounts selected and saves them
 function toggleUsernameInput(checkbox, usernameInput) {
         if (checkbox.checked) {
             usernameInput.style.display = 'block'; // Show input when checkbox is checked
@@ -217,14 +216,10 @@ function populateRows(searchedItem = '') {
                             <p>LinkedIn: <a href="https://linkedin.com/in/${profile.socialMedia.linkedin}" target="_blank">${profile.socialMedia.linkedin}</a></p>
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-secondary btn-sm" href="javascript:void(0);" id="back-to-all-profiles">Back to All Profiles</a>
+                            <a class="btn btn-secondary btn-sm" href="javascript:void(0);" id="back-to-all-profiles">Back</a>
                         </div>
                     </div>
                 `;
-
-
-                        //add something to revert them back to original state
-
 
                         // Hide all other profiles when one is selected
                         const allProfiles = document.querySelectorAll('.col-md-4');
@@ -276,6 +271,7 @@ function populateRows(searchedItem = '') {
             });
 }
 
+//toggles search bar
 document.getElementById('search-bar').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -308,9 +304,8 @@ document.getElementById('search-profile').addEventListener('click', function(eve
                 const usernameMatch = profile.username.toLowerCase().includes(searchedItem);
                 const bioMatch = profile.bio.toLowerCase().includes(searchedItem);
 
-
                 // If any match is found, display the profile
-                if (usernameMatch || bioMatch ) {
+                if (usernameMatch || bioMatch) {
                     const profileCard = document.createElement('div');
                     profileCard.classList.add('col-md-4', 'mb-5');
                     profileCard.setAttribute('data-profile-id', profile.username); // Store the username in the card
@@ -329,17 +324,40 @@ document.getElementById('search-profile').addEventListener('click', function(eve
                     // Append the card to the content row
                     all_profiles.appendChild(profileCard);
 
-                    //change people you might be interested tag to 'results'
-                    var other_people_div = document.getElementById('other-people-label')
-                    other_people_div.innerHTML='Results:'
-                    document.getElementById('other-people-label').scrollIntoView({ behavior: 'smooth' });
+                    // Reattach event listener to the new "Find Links" button
+                    const profileButton = profileCard.querySelector('.card-footer .btn');
+                    profileButton.addEventListener('click', function() {
+                        const username = this.getAttribute('data-username');
+                        const selectedProfile = profiles.find(p => p.username === username);
 
+                        // Update profile card with detailed information
+                        profileCard.innerHTML = `
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h2 class="card-title">${selectedProfile.username}</h2>
+                                    <p class="card-text">${selectedProfile.bio}</p>
+                                    <p>Facebook: <a href="https://facebook.com/${selectedProfile.socialMedia.facebook}" target="_blank">${selectedProfile.socialMedia.facebook}</a></p>
+                                    <p>Twitter: <a href="https://twitter.com/${selectedProfile.socialMedia.twitter}" target="_blank">${selectedProfile.socialMedia.twitter}</a></p>
+                                    <p>Instagram: <a href="https://instagram.com/${selectedProfile.socialMedia.instagram}" target="_blank">${selectedProfile.socialMedia.instagram}</a></p>
+                                    <p>Snapchat: <a href="https://snapchat.com/add/${selectedProfile.socialMedia.snapchat}" target="_blank">${selectedProfile.socialMedia.snapchat}</a></p>
+                                    <p>LinkedIn: <a href="https://linkedin.com/in/${selectedProfile.socialMedia.linkedin}" target="_blank">${selectedProfile.socialMedia.linkedin}</a></p>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);" id="back-to-all-profiles">Back</a>
+                                </div>
+                            </div>
+                        `;
+                    });
                 }
             });
+
+            // Change "People you might be interested in" to "Results"
+            var other_people_div = document.getElementById('other-people-label');
+            other_people_div.innerHTML = 'Results:';
+            document.getElementById('other-people-label').scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
             console.error('Error fetching profiles:', error);
         });
 });
-
 
