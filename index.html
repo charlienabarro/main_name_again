@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="javascript:void(0);" id="home-link">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Search</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:void(0);" id="search-bar">Search</a></li>
                         <li class="nav-item"><a class="nav-link" href="javascript:void(0);" id="profile_checker">Profile</a></li>
 
                     </ul>
@@ -28,13 +28,15 @@
             </div>
         </nav>
 
-        <!-- profile content -->
-        <div class="container px-4 px-lg-5">
-            <h2>
-
-            </h2>
+        <!-- searchbar content -->
+        <div id="search-bar-div" style="display: none; padding: 10px;">
+            <div class="d-flex">
+            <input type="text" class="form-control" id="search-input" placeholder="Search profiles..." />
+            <button type="submit" class="btn btn-primary" id="search-profile">Search</button>
+            </div>
 
         </div>
+
 
 
 
@@ -43,7 +45,7 @@
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-7">
-                    <img class="img-fluid rounded mb-4 mb-lg-0" src="img.png" width="450" height="200" alt="Main Name Logo" />
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="img.png" width="450" height="200" alt="Main Name Logo" style="border-radius:50px 50px 50px 50px">
                 </div>
 
                 <div class="col-lg-5">
@@ -118,7 +120,7 @@
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">People you might be interested in:</p></div>
+                <div class="card-body"><p class="text-white m-0" id="other-people-label">People you might be interested in:</p></div>
             </div>
             <!-- Content Row-->
             <div class="container px-4 px-lg-5">

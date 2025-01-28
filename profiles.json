@@ -31,7 +31,6 @@
       "snapchat": "inga3hb",
       "linkedin": ""
     }
-
   },
   {
     "username": "Aryan Bhujade",
@@ -52,6 +51,72 @@
       "twitter": "",
       "instagram": "sofia_roberts90",
       "snapchat": "xender90x",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Rufus Barnett",
+    "bio": "cousin to really cool guy",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "",
+      "snapchat": "Rufusbarnett23",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Thomas Elliot",
+    "bio": "Geography studebt at durham, rugby extrodinaire however injury prone, tennis lover,and farmer",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "_telliot_",
+      "snapchat": "thomaselliot12",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Fergus Edward Brant",
+    "bio": "Climate Science\nFootballer and keen golfer. Avid long-distance runner and enthusiastic baker. ",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "fergas_2468",
+      "snapchat": "fergustus44",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Max Malkinson",
+    "bio": "Durham university, from Kent.",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "max_m.17",
+      "snapchat": "max_malkinson",
+      "linkedin": ""
+    }
+  },
+  {
+    "username": "Charlie Nabarro",
+    "bio": "Durham Computer Science\nHighgate",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "charlie_nabarro",
+      "snapchat": "charlie_nabarro",
+      "linkedin": "charlie_nabarro"
+    }
+  },
+  {
+    "username": "Lily Lloyd-Williams ",
+    "bio": "19 years old, History student at Durham, live in London",
+    "socialMedia": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": "lily.lw_",
+      "snapchat": "lilylloydw",
       "linkedin": ""
     }
   }
