@@ -1,0 +1,127 @@
+1. Retrieve All Profiles
+URL: http://localhost:3001/api/profiles
+Method: GET
+Description: Fetches a list of all profiles stored on the server.
+
+Request: No request body is needed for this endpoint.
+
+Response:
+Success (200 OK):
+
+{
+  "data": [
+    {
+      "id": "123",
+      "username": "JohnDoe",
+      "bio": "Hello, this is my bio.",
+      "socialMedia": {
+        "facebook": "john_doe_fb",
+        "twitter": "john_doe_twitter",
+        "instagram": "john_doe_ig"
+      }
+    },
+    {
+      "id": "124",
+      "username": "JaneDoe",
+      "bio": "I am Jane, and I love coding.",
+      "socialMedia": {
+        "facebook": "jane_doe_fb",
+        "twitter": "jane_doe_twitter",
+        "instagram": "jane_doe_ig"
+      }
+    }
+  ]
+}
+
+
+Error (500 Internal Server Error):
+{
+  "success": false,
+  "message": "Error reading profiles file"
+}
+
+
+
+2. Create or Update Profile
+URL: http://localhost:3001/save-profile
+Method: POST
+Description: Creates a new profile or updates an existing profile based on the username provided in the request body.
+
+Request:
+{
+  "username": "JohnDoe",
+  "bio": "Hello, this is my bio.",
+  "socialMedia": {
+    "facebook": "john_doe_fb",
+    "twitter": "john_doe_twitter",
+    "instagram": "john_doe_ig",
+    "snapchat": "john_doe_snapchat",
+    "linkedin": "john_doe_linkedin"
+  }
+}
+
+Response:
+Success (200 OK):
+{
+  "success": true,
+  "message": "Profile saved successfully"
+}
+
+Error (500 Internal Server Error):
+{
+  "success": false,
+  "message": "Error writing profile to file"
+}
+
+
+3. Retrieve a Profile by Username
+URL: http://localhost:3001/profiles/{username}
+Method: GET
+Description: Fetches a profile based on the username parameter in the URL.
+
+Request:
+Path Parameter: username (string) — The username of the profile to retrieve.
+
+Response:
+Success (200 OK):
+{
+  "data": {
+    "id": "123",
+    "username": "JohnDoe",
+    "bio": "Hello, this is my bio.",
+    "socialMedia": {
+      "facebook": "john_doe_fb",
+      "twitter": "john_doe_twitter",
+      "instagram": "john_doe_ig"
+    }
+  }
+}
+
+Error (404 Not Found):
+{
+  "success": false,
+  "message": "Profile not found"
+}
+
+
+4. Delete a Profile by Username
+URL: http://localhost:3001/delete-profile/{username}
+Method: DELETE
+Description: Deletes a profile based on the username parameter in the URL.
+
+Request:
+Path Parameter: username (string) — The username of the profile to delete.
+
+Response:
+Success (200 OK):
+{
+  "success": true,
+  "message": "Profile deleted successfully"
+}
+Error (404 Not Found):
+json
+Copy
+{
+  "success": false,
+  "message": "Profile not found"
+}
