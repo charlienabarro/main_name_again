@@ -68,6 +68,8 @@ app.get('/api/profiles', (req, res) => {
     });
 });
 
+module.exports = app;
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

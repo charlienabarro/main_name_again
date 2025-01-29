@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation for Profile Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 10px;
+            font-size: 1em;
+
+        }
+        .endpoint {
+            background-color: #16a085;
+            color: white;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .request, .response-example {
+            font-size: 0.9em;
+            background-color: #f9f9f9;
+        }
+        .code-block {
+            font-family: "Courier New", monospace;
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>API Documentation for Profile Management</h1>
+
+    <section class="section">
+        <h2>Base URL</h2>
+        <pre class="code-block">http://localhost:3001/api</pre>
+    </section>
+
+    <section class="section">
+        <h2>1. Get All Profiles</h2>
+        <p><strong>Endpoint:</strong> <span class="endpoint">GET /profiles</span></p>
+        <p><strong>Description:</strong> Retrieve a list of all profiles stored on the server.</p>
+        <h3>Request Example</h3>
+        <pre class="request">GET http://localhost:3001/api/profiles</pre>
+        <h3>Response Example</h3>
+        <pre class="response-example">
+{
+  "data": [
+    {
+      "id": "123",
+      "username": "JohnDoe",
+      "bio": "Hello, this is my bio.",
+      "socialMedia": {
+        "facebook": "john_doe_fb",
+        "twitter": "john_doe_twitter",
+        "instagram": "john_doe_ig"
+      }
+    }
+  ]
+}
+        </pre>
+    </section>
+
+    <section class="section">
+        <h2>2. Save or Update Profile</h2>
+        <p><strong>Endpoint:</strong> <span class="endpoint">POST /save-profile</span></p>
+        <p><strong>Description:</strong> Save or update a profile based on the `username` parameter in the request body.</p>
+        <h3>Request Example</h3>
+        <pre class="request">
+{
+  "username": "JohnDoe",
+  "bio": "This is my bio",
+  "socialMedia": {
+    "facebook": "john_doe_fb",
+    "twitter": "john_doe_twitter",
+    "instagram": "john_doe_instagram",
+    "snapchat": "john_doe_snapchat",
+    "linkedin": "john_doe_linkedin"
+  }
+}
+        </pre>
+        <h3>Response Example</h3>
+        <pre class="response-example">
+{
+  "success": true,
+  "message": "Profile saved successfully"
+}
+        </pre>
+    </section>
+
+    <section class="section">
+        <h2>3. Get Profile by Username</h2>
+        <p><strong>Endpoint:</strong> <span class="endpoint">GET /profiles/{username}</span></p>
+        <p><strong>Description:</strong> Retrieve the details of a profile based on the `username` in the URL.</p>
+        <h3>Request Example</h3>
+        <pre class="request">GET http://localhost:3001/api/profiles/johndoe</pre>
+        <h3>Response Example</h3>
+        <pre class="response-example">
+{
+  "data": {
+    "id": "123",
+    "username": "JohnDoe",
+    "bio": "This is my bio",
+    "socialMedia": {
+      "facebook": "john_doe_fb",
+      "twitter": "john_doe_twitter",
+      "instagram": "john_doe_instagram",
+      "snapchat": "john_doe_snapchat",
+      "linkedin": "john_doe_linkedin"
+    }
+  }
+}
+        </pre>
+    </section>
+
+    <section class="section">
+        <h2>4. Delete Profile by Username</h2>
+        <p><strong>Endpoint:</strong> <span class="endpoint">DELETE /delete-profile/{username}</span></p>
+        <p><strong>Description:</strong> Deletes a profile based on the `username` parameter in the URL.</p>
+        <h3>Request Example</h3>
+        <pre class="request">DELETE http://localhost:3001/api/delete-profile/johndoe</pre>
+        <h3>Response Example</h3>
+        <pre class="response-example">
+{
+  "success": true,
+  "message": "Profile deleted successfully"
+}
+        </pre>
+    </section>
+
+</body>
+</html>
